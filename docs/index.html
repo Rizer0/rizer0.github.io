@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nullbyte</title>
+    <style>
+        @font-face {
+            font-family: 'EBGaramondExtraBold';
+            src: url('font.ttf') format('truetype');
+            }
+        body {
+            background-color: #282c35;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-container {
+            background-color: #1e222a;
+            font-family: 'EBGaramondExtraBold', sans-serif;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .profile-bio {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: #61dafb;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        .terminal-container {
+            background-color: #1e222a;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: left;
+            white-space: pre-line;
+            font-family: 'Courier New', monospace;
+            width: 111%;
+            height: 340px;
+            overflow: hidden;
+            font-size: 10px;
+        }
+         .gdb-command {
+            color: #61dafb;
+            font-weight: bold;
+        }
+
+        .assembly-address {
+            color: #e69c07; 
+        }
+
+        .assembly-instruction {
+            color: #f8f8f2;
+        }
+         .loading-animation::after {
+            content: '|';
+            animation: blink 1s infinite step-start;
+            display: inline-block;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="profile-container">
+        <img class="profile-picture" src="pixelart1.gif" alt="Profile Picture">
+        <div class="profile-name">Ammar Jokhadar AKA Nullbyte</div>
+        <div class="profile-bio">Developer - Penetration Tester - CTF Player .</div>
+        <div class="social-links">
+            <a href="https://twitter.com/Nullbyte0x" target="_blank">Twitter</a>
+            <a href="https://github.com/Rizer0" target="_blank">GitHub</a>
+            <a href="https://www.youtube.com/channel/UCsQVgW-6Q7mX-xcYhG8O51A" target="_blank">Youtube</a>
+            <a href="https://root-me.org/Syriancoder" target="_blank">Root-Me</a>
+        </div>
+    </div>
+<div class="container">
+    <div class="terminal-container" id="terminal2">
+        <div><span class="gdb-command">$Nullbyte@Parrot> gdb nullbyte.bin</span></div>
+        <div><span class="gdb-command">GNU gdb (GDB) 10.2</span></div>    
+    <div><span class="gdb-command">(gdb) disas main</span></div>
+        <div><span class="assembly-address">   0x0000000000401169 <+0>:</span> <span class="assembly-instruction">push   rbp</span></div>
+        <div><span class="assembly-address">   0x000000000040116a <+1>:</span> <span class="assembly-instruction">mov    rdi,0x1</span></div>
+        <div><span class="assembly-address">   0x0000000000401171 <+8>:</span> <span class="assembly-instruction">sub    rsp,0x10</span></div>
+        <div><span class="assembly-address">   0x0000000000401175 <+12>:</span> <span class="assembly-instruction">lea    rsi,[rip+0xe72]</span></div>
+        <div><span class="assembly-address">   0x000000000040117c <+19>:</span> <span class="assembly-instruction">call   0x401030 <puts@plt></span></div>
+        <div><span class="assembly-address">   0x0000000000401181 <+24>:</span> <span class="assembly-instruction">mov    eax,0x0</span></div>
+        <div><span class="assembly-address">   0x0000000000401186 <+29>:</span> <span class="assembly-instruction">add    rsp,0x10</span></div>
+        <div><span class="assembly-address">   0x000000000040118a <+33>:</span> <span class="assembly-instruction">pop    rbp</span></div>
+        <div><span class="assembly-address">   0x000000000040118b <+34>:</span> <span class="assembly-instruction">ret</span></div>
+        <div><span class="gdb-command">End of assembler dump.</span></div>
+        <div><span class="gdb-command">(gdb) <span class="loading-animation"></span></span></div>
+    </div>
+</div>
+</body>
+</html>
