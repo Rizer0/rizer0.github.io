@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nullbyte</title>
     <link rel="icon" href="title.gif" type="image/gif">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'handwriting';
-            src: url('font.ttf') format('truetype');
-            }
         body {
             background-color: #282c35;
             color: #ffffff;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -21,44 +18,44 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow: hidden;
         }
-
         .container {
             width: 90%;
+            max-width: 1200px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            animation: fadeIn 1.5s ease-in-out;
         }
-
         .profile-container {
             background-color: #1e222a;
-            font-family: 'handwriting', sans-serif;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
             padding: 20px;
             text-align: center;
             width: 100%;
             margin-bottom: 20px;
+            transform: scale(0.9);
+            animation: scaleIn 0.8s forwards;
         }
-
         .profile-picture {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             object-fit: cover;
             margin-bottom: 10px;
+            border-radius: 50%;
+            animation: bounceIn 1s ease-out;
         }
-
         .profile-name {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 28px;
+            font-weight: 600;
             margin-bottom: 5px;
         }
-
         .profile-bio {
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 20px;
         }
-
         .social-links a {
             color: #61dafb;
             text-decoration: none;
@@ -68,77 +65,98 @@
             display: inline-block;
             transition: transform 0.3s ease, color 0.3s ease;
         }
-
         .social-links a:hover {
             color: #f8f8f8;
             animation: bounce 0.5s infinite;
         }
-
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
             }
             40% {
-                transform: translateY(-5px);
+                transform: translateY(-10px);
             }
             60% {
-                transform: translateY(-2px);
+                transform: translateY(-5px);
             }
         }
-
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes scaleIn {
+            to {
+                transform: scale(1);
+            }
+        }
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
         .rights {
             color: #e69c07;
-            position: fixed;
             padding: 10px;
-            font-family: 'handwriting', sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            font-size: 10px;
-            bottom: 0;
+            font-size: 12px;
         }
         .terminal-container {
             background-color: #1e222a;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
             padding: 20px;
             text-align: left;
             white-space: pre-line;
             font-family: 'Courier New', monospace;
-            width: 111%;
+            width: 100%;
             height: 340px;
             overflow: hidden;
             font-size: 10px;
+            animation: fadeIn 2s ease-in-out;
         }
-         .gdb-command {
+        .gdb-command {
             color: #61dafb;
             font-weight: bold;
         }
-
         .assembly-address {
             color: #e69c07;
         }
-
         .assembly-instruction {
             color: #c21b93;
-
         }
         .assembly-instruction-2 {
             color: #f8f8f8;
-
         }
-         .loading-animation::after {
+        .loading-animation::after {
             content: '|';
             animation: blink 1s infinite step-start;
             display: inline-block;
             margin-left: 4px;
         }
         .loading-recording::after {
-           content: '•';
-           color: red;
-           font-size: 35px;
-           font-weight: bold;
-           animation: blink 1s infinite step-start;
-           display: inline-block;
-           margin-left: 0px;
+            content: '•';
+            color: red;
+            font-size: 35px;
+            font-weight: bold;
+            animation: blink 1s infinite step-start;
+            display: inline-block;
+            margin-left: 0px;
         }
         @keyframes blink {
             50% {
@@ -148,38 +166,37 @@
     </style>
 </head>
 <body>
-
-<div class="container">
-    <div class="profile-container">
-        <img class="profile-picture" src="pixelart1.gif" alt="Profile Picture">
-        <div class="profile-name">Ammar Jokhadar AKA Nullbyte</div>
-        <div class="profile-bio"><span class="loading-recording"></span> Developer - Penetration Tester - CTF Player.</div>
-        <div class="social-links">
-            <a href="https://twitter.com/Nullbyte0x" target="_blank">Twitter</a>
-            <a href="https://github.com/Rizer0" target="_blank">GitHub</a>
-            <a href="https://www.youtube.com/channel/UCsQVgW-6Q7mX-xcYhG8O51A" target="_blank">Youtube</a>
-            <a href="https://root-me.org/Syriancoder" target="_blank">Root-Me</a>
+    <div class="container">
+        <div class="profile-container">
+            <img class="profile-picture" src="https://www.piskelapp.com/static/resources/home/features/feature-open-source@2x.gif" alt="Profile Picture">
+            <div class="profile-name">Ammar Jokhadar (@Nullbyte0x)</div>
+            <div class="profile-bio"><span class="loading-recording"></span> 21 year's old, Content creator - Reverse Engineer - Security Researcher - CTF Player</div>
+            <div class="social-links">
+                <a href="https://twitter.com/Nullbyte0x" target="_blank">Twitter</a>
+                <a href="https://github.com/Rizer0" target="_blank">GitHub</a>
+                <a href="https://www.youtube.com/channel/UCsQVgW-6Q7mX-xcYhG8O51A" target="_blank">YouTube</a>
+                <a href="https://root-me.org/Syriancoder" target="_blank">Root-Me</a>
+            </div>
+        </div>
+        <div class="terminal-container" id="terminal2">
+            <div><span class="gdb-command">$Nullbyte@Parrot> gdb nullbyte.bin</span></div>
+            <div><span class="gdb-command">GNU gdb (GDB) 10.2</span></div>
+            <div><span class="gdb-command">(gdb) disas main</span></div>
+            <div><span class="assembly-address">   0x0000000000401169 <+0>:</span> <span class="assembly-instruction-2">push </span> <span class="assembly-instruction"> rbp</span></div>
+            <div><span class="assembly-address">   0x000000000040116a <+1>:</span> <span class="assembly-instruction-2">mov </span> <span class="assembly-instruction">    rdi,0x1</span></div>
+            <div><span class="assembly-address">   0x0000000000401171 <+8>:</span> <span class="assembly-instruction-2">sub </span> <span class="assembly-instruction">   rsp,0x10</span></div>
+            <div><span class="assembly-address">   0x0000000000401175 <+12>:</span> <span class="assembly-instruction-2">lea </span> <span class="assembly-instruction">   rsi,[rip+0xe72]</span></div>
+            <div><span class="assembly-address">   0x000000000040117c <+19>:</span> <span class="assembly-instruction-2">call </span> <span class="assembly-instruction">   0x401030 &lt;puts@plt&gt;</span></div>
+            <div><span class="assembly-address">   0x0000000000401181 <+24>:</span> <span class="assembly-instruction-2">mov </span> <span class="assembly-instruction">   eax,0x0</span></div>
+            <div><span class="assembly-address">   0x0000000000401186 <+29>:</span> <span class="assembly-instruction-2">add </span> <span class="assembly-instruction">   rsp,0x10</span></div>
+            <div><span class="assembly-address">   0x000000000040118a <+33>:</span> <span class="assembly-instruction-2">pop </span> <span class="assembly-instruction">   rbp</span></div>
+            <div><span class="assembly-address">   0x000000000040118b <+34>:</span> <span class="assembly-instruction-2">ret</span></div>
+            <div><span class="gdb-command">End of assembler dump.</span></div>
+            <div><span class="gdb-command">(gdb) <span class="loading-animation"></span></span></div>
+        </div>
+        <div class="rights">
+            Code By @Rizer0
         </div>
     </div>
-<div class="container">
-    <div class="terminal-container" id="terminal2">
-        <div><span class="gdb-command">$Nullbyte@Parrot> gdb nullbyte.bin</span></div>
-        <div><span class="gdb-command">GNU gdb (GDB) 10.2</span></div>
-    <div><span class="gdb-command">(gdb) disas main</span></div>
-        <div><span class="assembly-address">   0x0000000000401169 <+0>:</span> <span class="assembly-instruction-2">push </span> <span class="assembly-instruction"> rbp</span></div>
-        <div><span class="assembly-address">   0x000000000040116a <+1>:</span> <span class="assembly-instructio-2n">mov <span class="assembly-instruction">    rdi,0x1</span></div>
-        <div><span class="assembly-address">   0x0000000000401171 <+8>:</span> <span class="assembly-instruction-2">sub <span class="assembly-instruction">   rsp,0x10</span></div>
-        <div><span class="assembly-address">   0x0000000000401175 <+12>:</span> <span class="assembly-instruction-2">lea <span class="assembly-instruction">   rsi,[rip+0xe72]</span></div>
-        <div><span class="assembly-address">   0x000000000040117c <+19>:</span> <span class="assembly-instruction-2">call <span class="assembly-instruction">   0x401030 &lt;puts@plt&gt;</span></div>
-        <div><span class="assembly-address">   0x0000000000401181 <+24>:</span> <span class="assembly-instruction-2">mov <span class="assembly-instruction">   eax,0x0</span></div>
-        <div><span class="assembly-address">   0x0000000000401186 <+29>:</span> <span class="assembly-instruction-2">add <span class="assembly-instruction">   rsp,0x10</span></div>
-        <div><span class="assembly-address">   0x000000000040118a <+33>:</span> <span class="assembly-instruction-2">pop <span class="assembly-instruction">   rbp</span></div>
-        <div><span class="assembly-address">   0x000000000040118b <+34>:</span> <span class="assembly-instruction-2">ret</span></div>
-        <div><span class="gdb-command">End of assembler dump.</span></div>
-        <div><span class="gdb-command">(gdb) <span class="loading-animation"></span></span></div>
-    </div>
-</div>
-<div class="rights">
-        Code By @Rizer0
-    </div></body>
+</body>
 </html>
